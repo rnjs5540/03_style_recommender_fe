@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'Middleschool_student';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/Middleschool_student.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UhBeemysen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'UhBeepuding';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeepuding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html{
+    height: 100%;
+}
+body{
+    all:unset;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container{
+    font-family: 'Middleschool_student';
+    width: 100%;
+    background-color: rgb(219, 229, 235, 0.6);
+    height: 80px;
+    display: flex;
+    position:fixed;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+    top: 0;
+}
+
+.logo{
+    font-family: 'Middleschool_student';
+    font-size: 80px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 90px;
+    margin: 0 0 0 100px;
+    text-decoration: none;
+    color: #4285f4;
+}
+
+.navbar-ul{
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-item{
+    width: 250px;
+    float: left;
+    font-size: 42px;
+    transition: all 0.3s ease;
+}
+
+.nav-item > a{
+    text-decoration: none;
+    color:#4e4e4e;
+    position: relative;
+}
+
+.nav-item>a:hover{
+    color:#43b3a6;
+    transition: all 0.3s ease;
+}
+
+.nav-item > a::after {
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 3px;
+    border-bottom: 2px solid #43b3a6;
+    transition:all .3s ease;
+  }
+.nav-item:hover > a::after {
+    content: '';
+    width: 100%;
+    left: 0px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 3px;
+    border-bottom: 2px solid #39d9c8;
+    transition:all .3s ease;
+  }
+
+.nav-item:not(:last-child){
+    border-right: 2px solid #b5b5b5;
+}
+
+.pick-box{
+    background: linear-gradient(rgb(232, 231, 231), rgb(184, 229, 255));
+    width:800px;
+    height: 100%;
+    position: fixed;
+}
+
+.weather-image{
+    width:500px;
+    position: fixed;
+    z-index: 3;
+    margin: 0 0 0 -50px;
+    filter: drop-shadow(0px 0px 5px gray);
+}
+
+.user-pick{
+    width: 600px;
+    height: 750px;
+    margin: 100px;
+    background-color: rgb(169, 207, 191);
+    position: fixed;
+    border-radius: 25px;
+    box-shadow: 0 0 5px 3px rgb(211, 211, 211);
+    border: 10px solid rgb(236, 236, 236);
+}
+
+.complete{
+    color:#ffffff;
+    font-size: 45px;
+    text-align: center;
+    line-height: 100px;
+    font-family: 'Middleschool_student';
+    width: 600px;
+    height: 100px;
+    margin: 100px;
+    background-color: rgb(134, 177, 177);
+    position: fixed; 
+    margin-top: 900px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 1px rgb(251, 251, 251);
+}
+
+#recommend{
+    background-color: #fafafa;
+    width: 57%;
+    height: 2000px;
+    padding: 100px;
+}
+
+.row1{
+    width: 100%;
+    margin-left: 780px;
+    padding: 0 0 40px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.recom-image{
+    border-radius: 20px;
+    width:400px;
+}

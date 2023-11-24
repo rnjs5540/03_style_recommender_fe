@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 및 선택</title>
+    <link rel="stylesheet" href="css/pick.css">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <nav>
+        <div class="container">
+            <a class="logo" href="index.html">
+                <p>OmO</p>
+            </a>
+            <div class="navbar">
+                <ul class="navbar-ul">
+                    <li class="nav-item">
+                        <a href="#">기온별 옷차림</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">회원가입</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation Section -->
+
+    <!-- Pick Section -->
+    <div class="pick-box">
+        <div class="image-box">
+            <img class="weather-image" src="image/thunderwithcloud.png" alt="">
+        </div>
+        <div class="user-pick">
+            <!-- 여기에 동적으로 업데이트될 내용을 추가 -->
+        </div>
+        <div class="complete">
+            당신만의 코디를 완성하세요 !
+        </div>
+    </div>
+    <!-- End of Pick Section -->
+
+    <!-- Recommend Section -->
+    <div id="recommend">
+        <div class="row1" id="recommendRow1">
+            <!-- 여기에 동적으로 업데이트될 내용을 추가 -->
+        </div>
+        <div class="row1" id="recommendRow2">
+            <!-- 여기에 동적으로 업데이트될 내용을 추가 -->
+        </div>
+        <div class="row1" id="recommendRow3">
+            <!-- 여기에 동적으로 업데이트될 내용을 추가 -->
+        </div>
+    </div>
+    <!-- End of Recommend Section -->
+
+    <script>
+        
+        const url = "http://192.168.1.178:8080"
+
+        // /codies 엔드포인트에 접근하여 이미지 URL을 가져오는 함수
+        function fetchCodiesImages() {
+            fetch(url + '/codies', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    tag: 217,
+                    gender: 0,
+                }),
+            })
+            .then((response) => {
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                console.log(data[0]);
+                console.log(data[0].image_url);
+                
+                const recommend = document.getElementById("recommend").children;
+                console.log(recommend[0]);
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 3*i; j < 3*i+3; j++){
+                        const imageUrl = data[j].image_url;
+                        recommend[i].innerHTML += `<a href="${imageUrl}"><img class="recom-image" src="${imageUrl}" alt="추천 이미지"></a>`;
+                    }
+                }
+            })
+            .catch((error) => console.error("Error:", error));
+        }
+
+        // fetchCodiesImages 함수 호출
+        fetchCodiesImages();
+    </script>
+</body>
+</html>

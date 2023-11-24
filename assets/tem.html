@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기온별 옷차림</title>
+    <link rel="stylesheet" href="css/tem.css">
+</head>
+
+<body>
+    <!-- Navigation Section -->
+    <nav>
+        <div class="container">
+            <a class="logo" href="#">
+                <img src="" alt="">
+            </a>
+
+            <div class="navbar">
+                <ul class="navbar-ul">
+                    <li class="nav-item">
+                        <a href="#"><strong>기온별 옷차림</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">회원가입</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation Section -->
+
+    <nav class = "temp-nav" id="recommend">
+        <ul class = "temp-ul">
+            <li class = "temp-li"> ~0<small>ºC</small></li>
+            <li class = "temp-li">0<small>ºC</small> ~ 8<small>ºC</small></li>
+            <li class = "temp-li">8<small>ºC</small> ~ 15<small>ºC</small></li>
+            <li class = "temp-li">15<small>ºC</small> ~ 22<small>ºC</small></li>
+            <li class = "temp-li">22<small>ºC</small> ~ 30<small>ºC</small></li>
+        </ul>
+    </nav>
+
+    <div class = "contents">
+        <div class = "contents-box">
+            <ul  class = "contents-row1">
+            </ul>
+        </div>
+        <div class = "contents-box">
+        </div>
+    </div>
+
+    
+    <script>
+        
+        const url = "http://192.168.1.178:8080"
+
+        // /codies 엔드포인트에 접근하여 이미지 URL을 가져오는 함수
+        function fetchCodiesImages() {
+            fetch(url + '/codies', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    tag: 217,
+                    gender: 0,
+                }),
+            })
+            .then((response) => {
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                console.log(data[0]);
+                console.log(data[0].image_url);
+                
+                const recommend = document.getElementById("recommend").children;
+                console.log(recommend[0]);
+                for (let i = 0; i < 4; i++) {
+                    const imageUrl = data[i].image_url;
+                    recommend[0].innerHTML += `<li><img class="contents-image" src="${imageUrl}" alt="추천 이미지"></li>`;
+                }
+                
+                for (let i = 0; i < 4; i++) {
+                    const imageUrl = data[i].image_url;
+                    recommend[1].innerHTML += `<li><img class="contents-image" src="${imageUrl}" alt="추천 이미지"></li>`;
+                }
+            })
+            .catch((error) => console.error("Error:", error));
+        }
+
+        // fetchCodiesImages 함수 호출
+        fetchCodiesImages();
+    </script>
+</body>
+
+
+
+</html>

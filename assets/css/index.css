@@ -1,0 +1,371 @@
+@font-face {
+    font-family: 'Middleschool_student';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/Middleschool_student.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UhBeemysen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'UhBeepuding';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeepuding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes bottomcheck {
+    0% {height: 0;}
+    100% {height: 10px;}
+}
+  @keyframes topcheck {
+    0% {height: 0;}
+    50% {height: 0;}
+    100% {height: 24px;}
+}
+
+body{
+    all:unset;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.backgruond-image {
+    background-color: aqua;
+    height: 700px;
+}
+
+.sky {
+    position: relative;
+    object-fit:fill;
+    width: 100%;
+    height: 100%;
+}
+
+
+.container{
+    font-family: 'Middleschool_student';
+    width: 100%;
+    background-color: rgb(244, 244, 244, 0.78);
+    height: 90px;
+    display: flex;
+    position:fixed;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+    top: 0;
+}
+
+.logo{
+    font-family: 'Middleschool_student';
+    font-size: 80px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 90px;
+    margin: 0 0 0 100px;
+    text-decoration: none;
+    color: #4285f4;
+}
+.navbar-ul{
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-item{
+    width: 250px;
+    float: left;
+    font-size: 42px;
+    transition: all 0.3s ease;
+}
+
+.nav-item > a{
+    text-decoration: none;
+    color:#4e4e4e;
+    position: relative;
+}
+
+.nav-item>a:hover{
+    color:#43b3a6;
+    transition: all 0.3s ease;
+}
+
+.nav-item > a::after {
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 3px;
+    border-bottom: 2px solid #43b3a6;
+    transition:all .3s ease;
+  }
+.nav-item:hover > a::after {
+    content: '';
+    width: 100%;
+    left: 0px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 3px;
+    border-bottom: 2px solid #39d9c8;
+    transition:all .3s ease;
+  }
+
+.nav-item:not(:last-child){
+    border-right: 2px solid #b5b5b5;
+}
+
+
+.image-weather{
+    position: relative;
+    z-index: 3;
+    width: 800px;
+    margin-top: -900px;
+    margin-left: 70px;
+    filter: drop-shadow(5px 5px 5px #848484)
+}
+
+.weather{
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.date{
+    color:#4d4c4c;
+    background-color: aliceblue;
+    width: 400px;
+    font-size: 50px;
+    margin: 0 auto;
+    margin-top: -500px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-family: 'UhBeemysen';
+    box-shadow: 0px 0px 8px 2px #d1d1d1;
+}
+
+.tem{
+    font-family: 'Middleschool_student';  
+    margin-top: -20px;
+}
+
+.tem > .real {
+    background: linear-gradient(#171c2197, #282828);
+    color: transparent;
+    letter-spacing: 4px;
+    -webkit-background-clip: text;
+    font-size: 150px;
+    font-weight: 600;
+}
+
+.tem > .feel {
+    color: rgb(59, 59, 59);
+    font-size: 70px;
+    font-weight: 400;
+    letter-spacing: 0px;
+}
+
+.relative-tem{
+    margin-top: 30px;
+    font-family: 'UhBeepuding';   
+    font-size: 40px;  
+    color:#434343 
+}
+
+.high-low{
+    font-family: 'UhBeepuding';   
+    font-size: 35px;  
+    color:#434343;
+}
+
+.high-low > span:first-child::after{
+    margin-left: 20px;
+    margin-right: 20px;
+    content: '-'
+}
+
+.etc{
+    display: flex;
+    margin-top: 30px;
+}
+.etc > li{
+    margin: 0 auto;
+    list-style-type: none;
+    font-size: 55px;
+    font-family: 'UhBeemysen';
+
+}
+
+.etc >li:not(:last-of-type){
+    margin-right: -800px;
+}
+
+.etc >li:not(:last-of-type)::after{
+    margin-left: 20px;
+    margin-right: 20px;
+    content: "|"
+}
+
+.search-button{
+    position: relative;
+    z-index: 3;
+    width: 1000px;
+    display: flex;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.search-button > button{
+    display: block;
+    width: 600px;
+    height: 100px;
+    margin: auto;
+    font-size: 60px;
+    border-radius: 25px;
+    border-color: azure;
+    background-color: aliceblue;
+    color:#545454;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'UhBeemysen';
+    box-shadow: 0px 0px 5px 2px #e6e6e6;
+}
+
+.search-span{
+    font-size: 43px;
+    font-family: 'Middleschool_student';
+    width:200px;
+    height:100px;
+    margin-left: 30px;
+}
+
+.search-div{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color:#323232;
+}
+
+
+.search-div>input{
+    height: 50px;
+}
+
+.search-div>label{
+    margin-left: 10px;
+}
+
+.cb1,
+.cb2 {
+  height: 27px;
+  width: 27px;
+  background-color: transparent;
+  border: 3px solid #636363;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  transition: border-color ease 0.2s;
+  cursor: pointer;
+}
+
+.cb1::before, .cb1::after,
+.cb2::before, .cb2::after {
+  position: absolute;
+  height: 0;
+  width: 4px;
+  background-color: #4285f4;
+  box-sizing: border-box;
+  display: inline-block;
+  transform-origin: left top;
+  border-radius: 5px;
+  content: ' ';
+  transition: opacity ease 0.5;
+}
+.cb1::before,
+.cb2::before {
+  top: 14.4px;
+  left: 8.2px;
+  box-shadow: 0 0 0 1px transparent;
+  transform: rotate(-135deg);
+}
+.cb1::after,
+.cb2::after {
+  top: 7.4px;
+  left: 1px;
+  transform: rotate(-45deg);
+}
+input[id="cbtest1"]:checked + .cb1 {
+  border-color: #4285f4;
+}
+input[id="cbtest2"]:checked + .cb2 {
+  border-color: #4285f4;
+}
+input[id="cbtest1"]:checked + .cb1::after,
+input[id="cbtest2"]:checked + .cb2::after {
+  height: 10px;
+  animation: bottomcheck 0.2s ease 0s forwards;
+}
+input[id="cbtest1"]:checked + .cb1::before,
+input[id="cbtest2"]:checked + .cb2::before {
+  height: 24px;
+  animation: topcheck 0.4s ease 0s forwards;
+}
+input {
+  display: none;
+}
+
+.search-button >button:hover{
+    transform: scale(1.07);
+    transition: all 0.5s ease;
+}
+
+.tag{
+    position: relative;
+    width: 700px;
+    z-index: 3;
+    margin: 0 auto;
+}
+
+.tag > ul{
+    display: flex;
+}
+
+
+.tag > ul > li {
+    width: 150px;  
+    float: left;    
+    font-family: 'Middleschool_student';
+    list-style-type: none;
+    margin: 0 auto;
+    font-size: 40px;
+    color:rgb(85, 85, 85);
+    text-align: center;
+}
+
+.half-circle {
+    position: relative;
+    background: linear-gradient(rgb(228, 228, 228), rgb(184, 229, 255));
+    margin-top: -690px;
+    width: 100%;
+    height: 600px;
+    border-radius: 600px 600px 0px 0px;
+    box-shadow: 0px 0px 10px 5px #b0b0b0;
+}
+
+.rec1{
+    position: relative;
+    height: 200px;
+    background-color: rgb(184, 229, 255);
+}
+
+
+

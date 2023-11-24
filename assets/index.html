@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 모입지</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- Image Section -->
+    <div class="backgruond-image">
+        <img class="sky" src="image/sky1.avif" alt="대체">
+    </div>
+    <div class="weather-image">
+        <img class="image-weather" src="image/thunderwithcloud.png" alt="구름!">
+    </div>
+    <!-- End of Image Section -->
+
+    <!-- Navigation Section -->
+    <nav>
+        <div class="container">
+            <a class="logo" href="index.html">
+                <p>OmO</p>
+            </a>
+
+            <div class="navbar">
+                <ul class="navbar-ul">
+                    <li class="nav-item">
+                        <a href="tem.html">기온별 옷차림</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">회원가입</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation Section -->
+
+    <!-- Weather Section -->
+    <div class="weather">
+        <div class="date"><p id="currentDate"></p></div>
+        <div class="tem">
+            <span class="real">
+                12.8
+                <small>ºC</small>
+            </span>
+            <span class="feel">
+                체감(10.3<small>ºC</small>)
+            </span>
+        </div>
+        <div class="relative-tem">
+            <span>
+                < 어제보다
+                <strong>3<small>ºC</small></strong>
+                낮아요 >
+            </span>
+        </div>
+        <div class="high-low">
+            <span>
+                최고온도 : 14
+                <small>ºC</small>
+            </span>
+            <span>
+                최저온도 : 7
+                <small>ºC</small>
+            </span>
+        </div>
+        <ul class="etc">
+            <li>
+                <span>습도</span>
+                <span>40</span>
+                <small class="unit">%</small>
+            </li>
+            <li>
+                <span>바람</span>
+                <span>6.6</span>
+                <small class="unit">m/s</small>
+            </li>
+            <li>
+                <span>강수</span>
+                <span>10</span>
+                <small class="unit">mm</small>
+            </li>
+        </ul>
+    </div>
+    <!-- End of sWeather Section -->
+
+
+    <!-- Search Section -->
+    <div class="search-button">
+        <span class="search-span">
+        </span>
+        <button type="button" onClick="location.href='pick.html'">오늘은 모입지?</button>
+        <span class="search-span">
+            <div class ="search-div">
+                <div>남성</div><input type="checkbox" name="gender" value="xy" id="cbtest1">
+                <label for="cbtest1" class="cb1"></label>
+            </div>
+            <div class="search-div">
+                <div>여성</div><input type="checkbox" name="gender" value="xy" id="cbtest2">
+                <label for="cbtest2" class="cb2"></label>
+            </div>
+        </span>
+    </div>
+    <!-- End OF Search Section -->
+
+    <!-- Tag Section -->
+    <div class="tag">
+        <ul>
+            <li><span><small>#</small>한파주의보</span></li>
+            <li><span><small>#</small>목도리</span></li>
+            <li><span><small>#</small>안개</span></li>
+            <li><span><small>#</small>보풀 제거</span></li>
+        </ul>
+    </div>
+    <!-- End of Tag Section -->
+
+    
+    
+    <div class="half-circle">
+        
+    </div>
+    
+    <div class="rec1">
+
+    </div>
+</body>
+
+<script>
+    // JavaScript를 사용하여 현재 날짜를 가져오는 함수
+    function getCurrentDate() {
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        var day = currentDate.getDate().toString().padStart(2, '0');
+
+        // 날짜를 년도, 월, 일로 구분하여 조합
+        var formattedDate = year + '년 ' + month + '월 ' + day + '일 ';
+        return formattedDate;
+    }
+
+    // 가져온 날짜를 HTML 요소에 삽입
+    document.getElementById("currentDate").innerText = getCurrentDate();
+
+</script>
+
+</html>

@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Middleschool_student';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/Middleschool_student.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UhBeemysen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'UhBeepuding';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeepuding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    all: unset;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    font-family: 'Middleschool_student';
+    width: 100%;
+    background-color: rgb(219, 229, 235, 0.6);
+    height: 80px;
+    display: flex;
+    position:fixed;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+    top: 0;
+}
+
+.navbar-ul{
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-item{
+    width: 250px;
+    float: left;
+    font-size: 42px;
+    transition: all 0.3s ease;
+}
+
+.nav-item > a{
+    text-decoration: none;
+    color:#4e4e4e;
+    position: relative;
+}
+
+.nav-item>a:hover{
+    color:#43b3a6;
+    transition: all 0.3s ease;
+}
+
+.nav-item > a::after {
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 3px;
+    border-bottom: 2px solid #43b3a6;
+    transition:all .3s ease;
+  }
+.nav-item:hover > a::after {
+    content: '';
+    width: 100%;
+    left: 0px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 3px;
+    border-bottom: 2px solid #39d9c8;
+    transition:all .3s ease;
+  }
+
+.nav-item:not(:last-child){
+    border-right: 2px solid #b5b5b5;
+}
+
+.temp-ul{
+    top: 0;
+    position: fixed;
+    width:100%;
+    background-color: aquamarine;
+    display: flex;
+    height: 70px;
+    margin-top:80px;
+    padding-left: 0;
+    margin-left: 0;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.temp-li{
+    font-family: 'Middleschool_student';
+    font-size: 30px;
+    background-color: rgba(223, 234, 234, 0.93);
+    line-height: 70px;
+    list-style:none;
+    width: 100%;
+    text-align: center;
+    border-right: 2px solid #b1b0bf;
+    transition: all 0.3s ease;
+}
+
+.temp-li:last-child {
+    border-right:none;
+}
+
+
+.contents-image{
+    margin: 10px;
+    width: 350px;
+}
+
+.contents-row1{
+    justify-content: space-between;
+    list-style: none;
+    display : flex;
+}
